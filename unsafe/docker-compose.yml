@@ -1,0 +1,13 @@
+version: '3'  # 使用Docker Compose版本3.8
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.9-management # 使用带有管理插件的RabbitMQ镜像
+    container_name: rabbitmq  # 容器名称
+    ports:
+      - "5672:5672"  # RabbitMQ的AMQP端口
+      - "15672:15672"  # RabbitMQ的管理界面端口
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"  # 设置默认用户名
+      RABBITMQ_DEFAULT_PASS: "123456"  # 设置默认密码
+
