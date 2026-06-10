@@ -21,7 +21,9 @@ subjectAltName = @alt_names
 
 [alt_names]
 IP.1 = 192.168.12.143  # 当前虚拟机IP
+IP.2 = 127.0.0.1 # 本地回环地址
 DNS.1 = rabbitmq-server  # 也可以改成主机名，方便域名访问
+DNS.2 = localhost
 EOF
 
 # 2. 生成服务器证书请求（包含 SAN 扩展）
