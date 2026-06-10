@@ -1,0 +1,17 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3.9-management  # 使用带有管理插件的RabbitMQ镜像
+    container_name: rabbitmq-safe  # 容器名称
+    ports:
+      - "5671:5671"  # RabbitMQ的AMQPS端口
+      - "15671:15671"  # RabbitMQ的管理界面HTTPS端口
+    
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"  # 设置默认用户名
+      RABBITMQ_DEFAULT_PASS: "123456"  # 设置默认密码
+      RABBITMQ_CONFIG_FILE: /etc/rabbitmq/rabbitmq.conf # 指定配置文件路径
+    
+    volumes:
+      - ./conf/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf # 挂载配置文件
+      - ./ssl:/etc/rabbitmq/ssl          # SSL证书目录
+
